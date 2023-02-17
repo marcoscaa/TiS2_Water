@@ -1,0 +1,105 @@
+{
+    "_comment": " model parameters",
+    "model": {
+	"type_map":	["S","Ti","O","H"],
+	"descriptor" :{
+	    "type":		"se_a",
+            "sel":		[120,60,48,96],
+            "rcut_smth":	3.00,
+            "rcut":		6.00,
+            "filter_neuron":	[25, 50, 100],
+	    "resnet_dt":	false,
+	    "axis_neuron":	12,
+	    "seed":		241242351,
+	    "_comment":		" that's all"
+	},
+	"fitting_net" : {
+	    "neuron":		[60, 60, 60],
+	    "resnet_dt":	true,
+	    "seed":		3456363451,
+	    "_comment":		" that's all"
+	},
+	"_comment":	" that's all"
+    },
+
+    "learning_rate" :{
+	"type":		"exp",
+	"start_lr":	0.001,
+	"decay_steps":	20000,
+	"decay_rate":	0.95,
+	"_comment":	"that's all"
+    },
+
+    "loss" :{
+	"start_pref_e":	0.02,
+	"limit_pref_e":	1,
+	"start_pref_f":	1000,
+	"limit_pref_f":	1,
+	"start_pref_v":	0,
+	"limit_pref_v":	0,
+	"_comment":	" that's all"
+    },
+
+    "_comment": " traing controls",
+    "training" : {
+        "systems": [
+            "../../raw_files/TiS2_Unit",
+            "../../raw_files/TiS2_3x3x3",
+            "../../raw_files/TiS2_MD",
+            "../../raw_files/Cubic-Water_MD-NvT",
+            "../../raw_files/Cubic-Water_MD-NpT",
+            "../../raw_files/Szz_Perturbed",
+            "../../raw_files/Szz_MD",
+            "../../raw_files/Szz_MD_39",
+            "../../raw_files/Szz_MD_39-500K",
+            "../../raw_files/Szz-L_FPMD",
+            "../../raw_files/Szz-L_MD",
+            "../../raw_files/Szz-L_MD-500K",
+            "../../raw_files/Szz-R_MD-No",
+            "../../raw_files/AC_FPMD",
+            "../../raw_files/AC_MD",
+            "../../raw_files/Szz-L_MD-Enhanced",
+            "../../raw_files/AC_MD-Normal",
+            "../../raw_files/Szz-L_MD-Enhanced_Normal"
+        ],
+	"set_prefix":	"set",    
+	"stop_batch":	2000000,
+        "batch_size": [
+            20,
+             1,
+             1,
+             1,
+             1,
+             1,
+             1,
+             1,
+             1,
+             1,
+             1,
+             1,
+             1,
+             1,
+             1,
+             1,
+             1,
+             1
+        ],
+	"seed":		2342353654561,
+	"_comment": " display and restart",
+	"_comment": " frequencies counted in batch",
+	"disp_file":	"lcurve.out",
+	"disp_freq":	100,
+	"numb_test":	10,
+	"save_freq":	1000,
+	"save_ckpt":	"model.ckpt",
+	"load_ckpt":	"model.ckpt",
+	"disp_training":true,
+	"time_training":true,
+	"profiling":	false,
+	"profiling_file":"timeline.json",
+	"_comment":	"that's all"
+    },
+
+    "_comment":		"that's all"
+}
+
